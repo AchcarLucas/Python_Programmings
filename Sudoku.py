@@ -58,21 +58,21 @@ incorrect5 = [ [1, 1.5],
 def check_sudoku(lst):
     digit = 1
     grid = len(lst)
-    for x in range(0, grid):
-        total_rows = 0
-        total_columns = 0
-        for y in range(0, grid):
-            if(lst[x][y] == digit):
-                total_rows = total_rows + 1
-            if(lst[y][x] == digit):
-                total_columns = total_columns + 1
+    while digit <= grid:
+        for x in range(0, grid):
+            total_rows = 0
+            total_columns = 0
+            for y in range(0, grid):
+                if(lst[x][y] == digit):
+                    total_rows = total_rows + 1
+                if(lst[y][x] == digit):
+                    total_columns = total_columns + 1
             if(total_rows != 1 or total_columns != 1):
                 return False
-            y = y + 1
-        x = x + 1
         digit = digit + 1
     return True
             
+
 print check_sudoku(incorrect)
 #>>> False
 
